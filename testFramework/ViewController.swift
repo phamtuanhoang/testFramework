@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import imglyKit
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func openCamera(sender: UIButton)
+    {
+        let cameraViewController = IMGLYCameraViewController(recordingModes: [.Photo, .Video])
+        cameraViewController.maximumVideoLength = 15
+        cameraViewController.squareMode = true
+        self.presentViewController(cameraViewController, animated: true) { () -> Void in
+            print("Loaded")
+        }
+    }
 
 }
 
